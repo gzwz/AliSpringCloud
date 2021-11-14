@@ -38,7 +38,7 @@ public class ProviderController {
     }
 
     @GetMapping("/hello")
-    public String hi(@RequestParam(value = "name",defaultValue = "小明",required = false)String name){
+    public String hello(@RequestParam(value = "name",defaultValue = "小明",required = false)String name){
 
         return "hello "+name;
     }

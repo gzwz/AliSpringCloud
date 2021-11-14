@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * Created by forezp on 2019/5/11.
+ * @author W
+ * @Date 2021-11-14
  */
-
 @RestController
 public class ConsumerController {
 
@@ -19,7 +19,7 @@ public class ConsumerController {
     @Autowired
     ProviderClient providerClient;
 
-    @GetMapping("/hello-test")
+    @GetMapping("/hellotemp")
     public String resttemplate(){
         return restTemplate.getForObject("http://nacos-provider/hello?name=小红",String.class);
 
@@ -29,4 +29,5 @@ public class ConsumerController {
     public String helloFeign(){
        return providerClient.hello("小敏");
     }
+
 }

@@ -1,5 +1,6 @@
 package provider.web;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,24 +14,24 @@ import java.util.List;
 
 
 @RestController
+@Slf4j
 public class ProviderController {
 
-    Logger logger= LoggerFactory.getLogger(ProviderController.class);
 
     @Autowired
     DiscoveryClient discoveryClient;
 
     @GetMapping("/services")
-    public String getServices(){
-        List<String> serviceNames=discoveryClient.getServices();
+    public String getServices() {
+        List<String> serviceNames = discoveryClient.getServices();
 
-        StringBuilder stringBuilder=new StringBuilder();
-        for (String s: serviceNames){
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String s : serviceNames) {
             stringBuilder.append(s).append("\n");
-            List<ServiceInstance> serviceInstances=discoveryClient.getInstances(s);
-            if(serviceInstances!=null&&serviceInstances.size()>0){
-                for (ServiceInstance serviceInstance: serviceInstances){
-                    logger.info("serviceName:"+s+" host:"+serviceInstance.getHost()+" port:"+serviceInstance.getPort());
+            List<ServiceInstance> serviceInstances = discoveryClient.getInstances(s);
+            if (serviceInstances != null && serviceInstances.size() > 0) {
+                for (ServiceInstance serviceInstance : serviceInstances) {
+                    log.info("serviceName:" + s + " host:" + serviceInstance.getHost() + " port:" + serviceInstance.getPort());
                 }
             }
         }
@@ -38,8 +39,8 @@ public class ProviderController {
     }
 
     @GetMapping("/hello")
-    public String hello(@RequestParam(value = "name",defaultValue = "小明",required = false)String name){
+    public String hello(@RequestParam(value = "name", defaultValue = "小明", required = false) String name) {
 
-        return "hello "+name;
+        return "hello " + name;
     }
 }

@@ -7,7 +7,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>SpringCloud</name>
     <description>基于阿里巴巴springcloud 学习</description>
-
+    <packaging>pom</packaging>
     <modules>
         <module>cloud</module>
     </modules>

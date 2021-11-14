@@ -21,7 +21,9 @@ public class ConsumerController {
 
     @GetMapping("/hellotemp")
     public String resttemplate(){
-        return restTemplate.getForObject("http://nacos-provider/hello?name=小红",String.class);
+        String result = restTemplate.getForObject("http://nacos-provider/hello?name=小红", String.class);
+        System.out.printf("返回结果："+result);
+        return result;
 
     }
 

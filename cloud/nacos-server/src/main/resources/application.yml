@@ -1,0 +1,9 @@
+
+server:
+  port: 9494
+spring:
+  application:
+    name: nacos-server
+
+logging:
+  config: classpath:log4j2-spring.xml

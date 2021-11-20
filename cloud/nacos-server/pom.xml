@@ -22,6 +22,14 @@
             <version>2.0.3</version>
             <type>pom</type>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.alibaba.nacos/nacos-core -->
+        <dependency>
+            <groupId>com.alibaba.nacos</groupId>
+            <artifactId>nacos-core</artifactId>
+            <version>0.8.0</version>
+            <type>pom</type>
+        </dependency>
+
         <dependency>
             <groupId>com.alibaba.nacos</groupId>
             <artifactId>nacos-config</artifactId>

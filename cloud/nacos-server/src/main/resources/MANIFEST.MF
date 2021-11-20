@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
-Implementation-Title: nacos-console 2.0.3
+Implementation-Title: nacos-nacos.console 2.0.3
 Implementation-Version: 2.0.3
 Archiver-Version: Plexus Archiver
 Built-By: xiweng.yy
 Spring-Boot-Layers-Index: BOOT-INF/layers.idx
 Specification-Vendor: Alibaba Group
-Specification-Title: nacos-console 2.0.3
+Specification-Title: nacos-nacos.console 2.0.3
 Implementation-Vendor-Id: com.alibaba.nacos
 Spring-Boot-Version: 2.5.3
 Implementation-Vendor: Alibaba Group

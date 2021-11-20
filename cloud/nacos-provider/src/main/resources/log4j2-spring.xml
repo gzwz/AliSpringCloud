@@ -16,12 +16,12 @@
 
     <appenders>
 
-        <console name="Console" target="SYSTEM_OUT">
+        <nacos.console name="Console" target="SYSTEM_OUT">
             <!--输出日志的格式-->
             <PatternLayout pattern="${LOG_PATTERN}"/>
             <!--控制台只输出level及其以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
             <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
-        </console>
+        </nacos.console>
 
         <!--文件会打印出所有信息，这个log每次运行程序会自动清空，由append属性决定，适合临时测试用-->
         <File name="Filelog" fileName="${FILE_PATH}/test.log" append="false">

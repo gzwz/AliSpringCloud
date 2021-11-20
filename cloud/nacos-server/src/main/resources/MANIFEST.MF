@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Implementation-Title: nacos-console 2.0.3
+Implementation-Version: 2.0.3
+Archiver-Version: Plexus Archiver
+Built-By: xiweng.yy
+Spring-Boot-Layers-Index: BOOT-INF/layers.idx
+Specification-Vendor: Alibaba Group
+Specification-Title: nacos-console 2.0.3
+Implementation-Vendor-Id: com.alibaba.nacos
+Spring-Boot-Version: 2.5.3
+Implementation-Vendor: Alibaba Group
+Main-Class: org.springframework.boot.loader.PropertiesLauncher
+Spring-Boot-Classpath-Index: BOOT-INF/classpath.idx
+Start-Class: com.alibaba.nacos.Nacos
+Spring-Boot-Classes: BOOT-INF/classes/
+Spring-Boot-Lib: BOOT-INF/lib/
+Created-By: Apache Maven 3.6.3
+Build-Jdk: 1.8.0_231
+Specification-Version: 2.0.3
+

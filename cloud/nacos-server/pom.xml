@@ -33,77 +33,72 @@
             <artifactId>nacos-naming</artifactId>
             <version>0.8.0</version>
         </dependency>
-<!--
-
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
-            &lt;!&ndash;<version>9.0.40</version>&ndash;&gt;
-            <scope>compile</scope>
+            <!--<version>9.0.40</version>-->
+            <!--<scope>compile</scope>-->
         </dependency>
-       &lt;!&ndash; <dependency>
+        <dependency>
             <groupId>com.alibaba.nacos</groupId>
             <artifactId>nacos-naming</artifactId>
-            <version>2.0.3</version>
-            &lt;!&ndash;<scope>compile</scope>&ndash;&gt;
-        </dependency>&ndash;&gt;
-        &lt;!&ndash; https://mvnrepository.com/artifact/com.alibaba.nacos/nacos-naming &ndash;&gt;
-
-
-        &lt;!&ndash;<dependency>
+            <!--<version>2.0.3</version>-->
+            <!--<scope>compile</scope>-->
+        </dependency>
+        <!--<dependency>
             <groupId>com.alibaba.nacos</groupId>
             <artifactId>nacos-istio</artifactId>
             <version>2.0.3</version>
-           &lt;!&ndash; <scope>compile</scope>&ndash;&gt;
-        </dependency>&ndash;&gt;
-        &lt;!&ndash; https://mvnrepository.com/artifact/com.alibaba.nacos/nacos-istio &ndash;&gt;
-        &lt;!&ndash;<dependency>
+            <scope>compile</scope>
+        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/com.alibaba.nacos/nacos-istio -->
+        <dependency>
             <groupId>com.alibaba.nacos</groupId>
             <artifactId>nacos-istio</artifactId>
             <version>2.0.1</version>
-        </dependency>&ndash;&gt;
+        </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>log4j-over-slf4j</artifactId>
-            &lt;!&ndash;<version>1.7.30</version>&ndash;&gt;
-            <scope>compile</scope>
+           <!-- <version>1.7.30</version>
+            <scope>compile</scope>-->
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
-            &lt;!&ndash;<version>1.7.30</version>&ndash;&gt;
-            <scope>compile</scope>
+            <!--<version>1.7.30</version>
+            <scope>compile</scope>-->
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jul-to-slf4j</artifactId>
-            &lt;!&ndash;<version>1.7.30</version>&ndash;&gt;
-            <scope>compile</scope>
+            <!--<version>1.7.30</version>
+            <scope>compile</scope>-->
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
-           &lt;!&ndash; <version>2.1.17.RELEASE</version>&ndash;&gt;
-            <scope>compile</scope>
+            <!--<version>2.1.17.RELEASE</version>
+            <scope>compile</scope>-->
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            &lt;!&ndash;<version>4.12</version>&ndash;&gt;
-            <scope>test</scope>
+           <!--<version>4.12</version>
+            <scope>test</scope>-->
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            &lt;!&ndash;<version>3.8.0</version>&ndash;&gt;
-            <scope>test</scope>
+            <!--<version>3.8.0</version>
+            <scope>test</scope>-->
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-inline</artifactId>
-            &lt;!&ndash;<version>3.8.0</version>&ndash;&gt;
-            <scope>test</scope>
-        </dependency>-->
+            <!--<version>3.8.0</version>
+            <scope>test</scope>-->
+        </dependency>
     </dependencies>
 </project>

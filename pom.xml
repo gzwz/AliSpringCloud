@@ -5,10 +5,12 @@
     <groupId>com.aliSpringCloud</groupId>
     <artifactId>SpringCloud</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
     <name>SpringCloud</name>
     <description>基于阿里巴巴springcloud 学习</description>
     <packaging>pom</packaging>
-    <modules>
-        <module>cloud</module>
-    </modules>
+
 </project>

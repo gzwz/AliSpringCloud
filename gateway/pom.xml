@@ -5,16 +5,21 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.aliSpringCloud</groupId>
-        <artifactId>gateway</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <groupId>com.alicloud</groupId>
+        <artifactId>AliSpringCloud</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.aliSpringCloud</groupId>
-    <artifactId>gateway-admin</artifactId>
+    <groupId>com.alicloud</groupId>
+    <artifactId>gateway</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
-    <dependencies>
+    <packaging>pom</packaging>
 
+    <modules>
+        <module>gateway-admin</module>
+        <module>gateway-api</module>
+    </modules>
+
+    <dependencies>
     </dependencies>
 </project>

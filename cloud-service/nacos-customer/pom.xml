@@ -5,14 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.aliSpringCloud</groupId>
-        <artifactId>cloud</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <groupId>com.alicloud</groupId>
+        <artifactId>cloud-service</artifactId>
+        <version>${myproject.version}</version>
     </parent>
 
-    <groupId>com.aliSpringCloud</groupId>
+    <groupId>com.alicloud</groupId>
     <artifactId>nacos-customer</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${myproject.version}</version>
 
     <dependencies>
         <dependency>

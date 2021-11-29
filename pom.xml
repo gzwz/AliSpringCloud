@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.alicloud</groupId>
     <artifactId>AliSpringCloud</artifactId>
-    <version>${myproject.version}</version>
+    <version>1.0.0-SNAPSHOT</version>
     <name>SpringCloud</name>
     <description>基于阿里巴巴springcloud 学习</description>
     <packaging>pom</packaging>
@@ -25,18 +25,18 @@
 
     <properties>
         <!-- Project revision -->
-        <myproject.version>1.0.0-SNAPSHOT</myproject.version>
+        <myproject>1.0.0-SNAPSHOT</myproject>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <!--<dependency>
+            <dependency>
                 <groupId>com.alicloud</groupId>
                 <artifactId>cloud-dependencies</artifactId>
                 <version>${project.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>-->
+                <!--<type>pom</type>-->
+                <!--<scope>import</scope>-->
+            </dependency>
 
             <!--<dependency>
                 <groupId>com.alibaba.cloud</groupId>

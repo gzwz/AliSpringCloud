@@ -27,16 +27,16 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>-->
-        <dependency>
+        <!--<dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-alibaba-sentinel-gateway</artifactId>
         </dependency>
-        <!--redis限流-->
+        &lt;!&ndash;redis限流&ndash;&gt;
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
         </dependency>
-        <!--swagger文档-->
+        &lt;!&ndash;swagger文档&ndash;&gt;
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
@@ -44,14 +44,14 @@
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
-        </dependency>
+        </dependency>-->
         <!--网关签权客户端-->
        <!-- <dependency>
             <groupId>com.springboot.cloud</groupId>
             <artifactId>authentication-client</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>-->
-        <dependency>
+       <!-- <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
         </dependency>
@@ -62,7 +62,7 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
     <build>

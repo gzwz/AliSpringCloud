@@ -13,6 +13,7 @@
     <groupId>com.alicloud</groupId>
     <artifactId>cloud-service</artifactId>
     <version>${myproject.version}</version>
+    <packaging>pom</packaging>
 
     <modules>
         <module>nacos-provider</module>

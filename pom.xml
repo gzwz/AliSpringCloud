@@ -31,21 +31,17 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Hoxton.SR9</version>
+            </dependency>
+            <dependency>
                 <groupId>com.alicloud</groupId>
                 <artifactId>cloud-dependencies</artifactId>
-                <version>${project.version}</version>
-                <!--<type>pom</type>-->
-                <!--<scope>import</scope>-->
-            </dependency>
-
-            <!--<dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>${project.version}</version>
+                <version>${myproject}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>-->
-
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

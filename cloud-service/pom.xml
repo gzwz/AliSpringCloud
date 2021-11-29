@@ -19,4 +19,10 @@
         <module>nacos-provider</module>
         <module>nacos-customer</module>
     </modules>
+    <dependencyManagement>
+        <dependencies>
+
+
+        </dependencies>
+    </dependencyManagement>
 </project>

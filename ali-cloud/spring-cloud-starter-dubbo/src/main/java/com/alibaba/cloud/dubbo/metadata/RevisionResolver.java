@@ -25,24 +25,24 @@ import org.apache.dubbo.common.logger.LoggerFactory;
 
 import org.springframework.cloud.client.ServiceInstance;
 
-import static com.alibaba.cloud.dubbo.metadata.repository.DubboServiceMetadataRepository.EXPORTED_SERVICES_REVISION_PROPERTY_NAME;
+import static com.alibaba.cloud.dubbo.metadata.repository.DubboServiceMetadataRepository.EXPORTED_SERVICES_myproject_PROPERTY_NAME;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 /**
- * Copy from org.apache.dubbo.metadata.RevisionResolver.
+ * Copy from org.apache.dubbo.metadata.myprojectResolver.
  *
  * @author <a href="mailto:chenxilzx1@gmail.com">theonefx</a>
  */
-public final class RevisionResolver {
+public final class myprojectResolver {
 
 	/**
 	 * The param key in url.
 	 */
-	public static final String SCA_REVSION_KEY = "sca_revision";
+	public static final String SCA_REVSION_KEY = "sca_myproject";
 
-	private static final String EMPTY_REVISION = "0";
+	private static final String EMPTY_myproject = "0";
 
-	private static final Logger logger = LoggerFactory.getLogger(RevisionResolver.class);
+	private static final Logger logger = LoggerFactory.getLogger(myprojectResolver.class);
 
 	private static final char[] hexDigits = { '0', '1', '2', '3', '4', '5', '6', '7', '8',
 			'9', 'A', 'B', 'C', 'D', 'E', 'F' };
@@ -54,19 +54,19 @@ public final class RevisionResolver {
 			mdInst = MessageDigest.getInstance("MD5");
 		}
 		catch (NoSuchAlgorithmException e) {
-			logger.error("Failed to calculate metadata revision", e);
+			logger.error("Failed to calculate metadata myproject", e);
 		}
 	}
 
-	private RevisionResolver() {
+	private myprojectResolver() {
 
 	}
 
-	public static String getEmptyRevision() {
-		return EMPTY_REVISION;
+	public static String getEmptymyproject() {
+		return EMPTY_myproject;
 	}
 
-	public static String calRevision(String metadata) {
+	public static String calmyproject(String metadata) {
 		mdInst.update(metadata.getBytes(UTF_8));
 		byte[] md5 = mdInst.digest();
 
@@ -80,14 +80,14 @@ public final class RevisionResolver {
 		return new String(str);
 	}
 
-	public static String getRevision(ServiceInstance instance) {
+	public static String getmyproject(ServiceInstance instance) {
 		Map<String, String> metadata = instance.getMetadata();
-		String revision = metadata.get(EXPORTED_SERVICES_REVISION_PROPERTY_NAME);
+		String myproject = metadata.get(EXPORTED_SERVICES_myproject_PROPERTY_NAME);
 
-		if (revision == null) {
-			revision = RevisionResolver.getEmptyRevision();
+		if (myproject == null) {
+			myproject = myprojectResolver.getEmptymyproject();
 		}
-		return revision;
+		return myproject;
 	}
 
 }

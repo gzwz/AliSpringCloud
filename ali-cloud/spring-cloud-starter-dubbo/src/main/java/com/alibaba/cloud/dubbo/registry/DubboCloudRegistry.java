@@ -29,7 +29,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
 
 import com.alibaba.cloud.commons.lang.StringUtils;
-import com.alibaba.cloud.dubbo.metadata.RevisionResolver;
+import com.alibaba.cloud.dubbo.metadata.myprojectResolver;
 import com.alibaba.cloud.dubbo.metadata.repository.DubboServiceMetadataRepository;
 import com.alibaba.cloud.dubbo.registry.event.ServiceInstancesChangedEvent;
 import com.alibaba.cloud.dubbo.service.DubboMetadataService;
@@ -99,9 +99,9 @@ public class DubboCloudRegistry extends FailbackRegistry
 	private final Map<String, MetadataServiceSubscribeHandler> metadataSubscribeHandlerMap = new ConcurrentHashMap<>();
 
 	/**
-	 * {appName : {revision: [instances]}}.
+	 * {appName : {myproject: [instances]}}.
 	 */
-	private final Map<String, Map<String, List<ServiceInstance>>> serviceRevisionInstanceMap = new ConcurrentHashMap<>();
+	private final Map<String, Map<String, List<ServiceInstance>>> servicemyprojectInstanceMap = new ConcurrentHashMap<>();
 
 	public DubboCloudRegistry(URL url, DiscoveryClient discoveryClient,
 			DubboServiceMetadataRepository repository,
@@ -125,12 +125,12 @@ public class DubboCloudRegistry extends FailbackRegistry
 			for (String appName : subscribeApps) {
 				List<ServiceInstance> instances = discoveryClient.getInstances(appName);
 
-				Map<String, List<ServiceInstance>> map = serviceRevisionInstanceMap
+				Map<String, List<ServiceInstance>> map = servicemyprojectInstanceMap
 						.computeIfAbsent(appName, k -> new HashMap<>());
 
 				for (ServiceInstance instance : instances) {
-					String revision = RevisionResolver.getRevision(instance);
-					List<ServiceInstance> list = map.computeIfAbsent(revision,
+					String myproject = myprojectResolver.getmyproject(instance);
+					List<ServiceInstance> list = map.computeIfAbsent(myproject,
 							k -> new ArrayList<>());
 					list.add(instance);
 				}
@@ -139,9 +139,9 @@ public class DubboCloudRegistry extends FailbackRegistry
 					logger.debug("APP {} preInited, instance siez is zero!!", appName);
 				}
 				else {
-					map.forEach((revision, list) -> logger.debug(
-							"APP {} revision {} preInited, instance size = {}", appName,
-							revision, list.size()));
+					map.forEach((myproject, list) -> logger.debug(
+							"APP {} myproject {} preInited, instance size = {}", appName,
+							myproject, list.size()));
 				}
 			}
 
@@ -259,13 +259,13 @@ public class DubboCloudRegistry extends FailbackRegistry
 			logger.info("APP {} instance changed, size changed to {}", appName,
 					instances.size());
 		}
-		// group by revision
+		// group by myproject
 		Map<String, List<ServiceInstance>> newGroup = instances.stream()
-				.collect(Collectors.groupingBy(RevisionResolver::getRevision));
+				.collect(Collectors.groupingBy(myprojectResolver::getmyproject));
 
 		synchronized (this) {
 
-			Map<String, List<ServiceInstance>> oldGroup = serviceRevisionInstanceMap
+			Map<String, List<ServiceInstance>> oldGroup = servicemyprojectInstanceMap
 					.computeIfAbsent(appName, k -> new HashMap<>());
 
 			if (serviceInstanceNotChanged(oldGroup, newGroup)) {
@@ -300,48 +300,48 @@ public class DubboCloudRegistry extends FailbackRegistry
 		Set<URL> urls2refresh = new HashSet<>();
 
 		// compare with local
-		for (String revision : oldGroup.keySet()) {
+		for (String myproject : oldGroup.keySet()) {
 
-			if (!newGroup.containsKey(revision)) {
-				// all instances of this list with revision has losted
+			if (!newGroup.containsKey(myproject)) {
+				// all instances of this list with myproject has losted
 				urlSubscribeHandlerMap.forEach((url, handler) -> {
-					if (handler.relatedWith(appName, revision)) {
-						handler.removeAppNameWithRevision(appName, revision);
+					if (handler.relatedWith(appName, myproject)) {
+						handler.removeAppNameWithmyproject(appName, myproject);
 						urls2refresh.add(url);
 					}
 				});
-				logger.debug("Subscription app {} revision {} has all losted", appName,
-						revision);
+				logger.debug("Subscription app {} myproject {} has all losted", appName,
+						myproject);
 			}
 		}
 
 		for (Map.Entry<String, List<ServiceInstance>> entry : newGroup.entrySet()) {
-			String revision = entry.getKey();
+			String myproject = entry.getKey();
 			List<ServiceInstance> instanceList = entry.getValue();
 
-			if (!oldGroup.containsKey(revision)) {
-				// this instance list of revision not exists
+			if (!oldGroup.containsKey(myproject)) {
+				// this instance list of myproject not exists
 				// should acquire urls
 				urlSubscribeHandlerMap.forEach(
-						(url, handler) -> handler.init(appName, revision, instanceList));
+						(url, handler) -> handler.init(appName, myproject, instanceList));
 			}
 
 			urlSubscribeHandlerMap.forEach((url, handler) -> {
-				if (handler.relatedWith(appName, revision)) {
+				if (handler.relatedWith(appName, myproject)) {
 					urls2refresh.add(url);
 				}
 			});
 
 			if (logger.isDebugEnabled()) {
-				logger.debug("Subscription app {} revision {} changed, instance list {}",
-						appName, revision,
+				logger.debug("Subscription app {} myproject {} changed, instance list {}",
+						appName, myproject,
 						instanceList.stream().map(
 								instance -> instance.getHost() + ":" + instance.getPort())
 								.collect(Collectors.toList()));
 			}
 		}
 
-		serviceRevisionInstanceMap.put(appName, newGroup);
+		servicemyprojectInstanceMap.put(appName, newGroup);
 
 		if (urls2refresh.size() == 0) {
 			logger.debug("Subscription app {}, no urls will be refreshed", appName);
@@ -509,14 +509,14 @@ public class DubboCloudRegistry extends FailbackRegistry
 	public List<ServiceInstance> getServiceInstances(Map<String, Set<String>> providers) {
 		List<ServiceInstance> instances = new ArrayList<>();
 
-		providers.forEach((appName, revisions) -> {
-			Map<String, List<ServiceInstance>> revisionMap = serviceRevisionInstanceMap
+		providers.forEach((appName, myprojects) -> {
+			Map<String, List<ServiceInstance>> myprojectMap = servicemyprojectInstanceMap
 					.get(appName);
-			if (revisionMap == null) {
+			if (myprojectMap == null) {
 				return;
 			}
-			for (String revision : revisions) {
-				List<ServiceInstance> list = revisionMap.get(revision);
+			for (String myproject : myprojects) {
+				List<ServiceInstance> list = myprojectMap.get(myproject);
 				if (list != null) {
 					instances.addAll(list);
 				}
@@ -526,8 +526,8 @@ public class DubboCloudRegistry extends FailbackRegistry
 		return instances;
 	}
 
-	public Map<String, Map<String, List<ServiceInstance>>> getServiceRevisionInstanceMap() {
-		return serviceRevisionInstanceMap;
+	public Map<String, Map<String, List<ServiceInstance>>> getServicemyprojectInstanceMap() {
+		return servicemyprojectInstanceMap;
 	}
 
 }

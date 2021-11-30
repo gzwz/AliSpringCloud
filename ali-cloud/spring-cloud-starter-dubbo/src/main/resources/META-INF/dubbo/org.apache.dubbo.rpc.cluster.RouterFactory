@@ -1,1 +1,1 @@
-revisionRouter=com.alibaba.cloud.dubbo.service.MetadataServiceRevisionRouterFactory
+myprojectRouter=com.alibaba.cloud.dubbo.service.MetadataServicemyprojectRouterFactory

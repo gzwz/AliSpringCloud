@@ -33,7 +33,7 @@ import com.alibaba.cloud.dubbo.env.DubboCloudProperties;
 import com.alibaba.cloud.dubbo.http.matcher.RequestMetadataMatcher;
 import com.alibaba.cloud.dubbo.metadata.DubboRestServiceMetadata;
 import com.alibaba.cloud.dubbo.metadata.RequestMetadata;
-import com.alibaba.cloud.dubbo.metadata.RevisionResolver;
+import com.alibaba.cloud.dubbo.metadata.myprojectResolver;
 import com.alibaba.cloud.dubbo.metadata.ServiceInfo;
 import com.alibaba.cloud.dubbo.metadata.ServiceRestMetadata;
 import com.alibaba.cloud.dubbo.registry.event.SubscribedServicesChangedEvent;
@@ -101,10 +101,10 @@ public class DubboServiceMetadataRepository
 	public static final String DUBBO_METADATA_SERVICE_URLS_PROPERTY_NAME = METADATA_SERVICE_URLS_PROPERTY_NAME;
 
 	/**
-	 * The key of dubbo metadata revision. copyed from
-	 * ServiceInstanceMetadataUtils.EXPORTED_SERVICES_REVISION_PROPERTY_NAME.
+	 * The key of dubbo metadata myproject. copyed from
+	 * ServiceInstanceMetadataUtils.EXPORTED_SERVICES_myproject_PROPERTY_NAME.
 	 */
-	public static String EXPORTED_SERVICES_REVISION_PROPERTY_NAME = "dubbo.metadata.revision";
+	public static String EXPORTED_SERVICES_myproject_PROPERTY_NAME = "dubbo.metadata.myproject";
 
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -294,18 +294,18 @@ public class DubboServiceMetadataRepository
 
 		addDubboMetadataServiceURLsMetadata(metadata, dubboMetadataServiceURLs);
 		addDubboProtocolsPortMetadata(metadata);
-		addRevision(metadata);
+		addmyproject(metadata);
 
 		return Collections.unmodifiableMap(metadata);
 	}
 
-	private void addRevision(Map<String, String> metadata) {
-		metadata.put(EXPORTED_SERVICES_REVISION_PROPERTY_NAME, calAndGetRevision());
+	private void addmyproject(Map<String, String> metadata) {
+		metadata.put(EXPORTED_SERVICES_myproject_PROPERTY_NAME, calAndGetmyproject());
 	}
 
-	public String calAndGetRevision() {
+	public String calAndGetmyproject() {
 		if (CollectionUtils.isEmptyMap(allExportedURLs)) {
-			return RevisionResolver.getEmptyRevision();
+			return myprojectResolver.getEmptymyproject();
 		}
 		else {
 			List<String> descs = new ArrayList<>(allExportedURLs.size());
@@ -316,7 +316,7 @@ public class DubboServiceMetadataRepository
 
 			descs.sort(String::compareTo);
 
-			return RevisionResolver.calRevision(descs.toString());
+			return myprojectResolver.calmyproject(descs.toString());
 		}
 	}
 

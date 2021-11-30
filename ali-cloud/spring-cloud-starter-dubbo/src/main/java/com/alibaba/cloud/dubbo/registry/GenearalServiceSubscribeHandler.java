@@ -27,7 +27,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import com.alibaba.cloud.dubbo.metadata.RevisionResolver;
+import com.alibaba.cloud.dubbo.metadata.myprojectResolver;
 import com.alibaba.cloud.dubbo.metadata.repository.DubboServiceMetadataRepository;
 import com.alibaba.cloud.dubbo.service.DubboMetadataService;
 import com.alibaba.cloud.dubbo.service.DubboMetadataServiceProxy;
@@ -39,7 +39,7 @@ import org.apache.dubbo.rpc.RpcContext;
 
 import org.springframework.cloud.client.ServiceInstance;
 
-import static com.alibaba.cloud.dubbo.metadata.RevisionResolver.SCA_REVSION_KEY;
+import static com.alibaba.cloud.dubbo.metadata.myprojectResolver.SCA_REVSION_KEY;
 import static java.util.Collections.emptyList;
 import static org.apache.dubbo.common.URLBuilder.from;
 import static org.apache.dubbo.common.constants.CommonConstants.GROUP_KEY;
@@ -54,7 +54,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.VERSION_KEY;
 public class GenearalServiceSubscribeHandler extends AbstractServiceSubscribeHandler {
 
 	/**
-	 * the provider which can provide service of the url. {appName, [revisions]}
+	 * the provider which can provide service of the url. {appName, [myprojects]}
 	 */
 	private final Map<String, Set<String>> providers = new HashMap<>();
 
@@ -76,57 +76,57 @@ public class GenearalServiceSubscribeHandler extends AbstractServiceSubscribeHan
 		this.dubboMetadataConfigServiceProxy = dubboMetadataConfigServiceProxy;
 	}
 
-	public boolean relatedWith(String appName, String revision) {
+	public boolean relatedWith(String appName, String myproject) {
 		Set<String> list = providers.get(appName);
 		if (list != null && list.size() > 0) {
-			if (list.contains(revision)) {
+			if (list.contains(myproject)) {
 				return true;
 			}
 		}
 		return false;
 	}
 
-	public void removeAppNameWithRevision(String appName, String revision) {
+	public void removeAppNameWithmyproject(String appName, String myproject) {
 		Set<String> list = providers.get(appName);
 		if (list != null) {
-			list.remove(revision);
+			list.remove(myproject);
 			if (list.size() == 0) {
 				providers.remove(appName);
 			}
 		}
 	}
 
-	public void addAppNameWithRevision(String appName, String revision) {
+	public void addAppNameWithmyproject(String appName, String myproject) {
 		Set<String> set = providers.computeIfAbsent(appName, k -> new HashSet<>());
-		set.add(revision);
+		set.add(myproject);
 	}
 
 	public synchronized void doInit() {
 		logger.debug("Subscription interface {}, GenearalServiceSubscribeHandler init",
 				url.getServiceKey());
 		Map<String, Map<String, List<ServiceInstance>>> map = registry
-				.getServiceRevisionInstanceMap();
+				.getServicemyprojectInstanceMap();
 		for (Map.Entry<String, Map<String, List<ServiceInstance>>> entry : map
 				.entrySet()) {
 			String appName = entry.getKey();
-			Map<String, List<ServiceInstance>> revisionMap = entry.getValue();
+			Map<String, List<ServiceInstance>> myprojectMap = entry.getValue();
 
-			for (Map.Entry<String, List<ServiceInstance>> revisionEntity : revisionMap
+			for (Map.Entry<String, List<ServiceInstance>> myprojectEntity : myprojectMap
 					.entrySet()) {
-				String revision = revisionEntity.getKey();
-				List<ServiceInstance> instances = revisionEntity.getValue();
-				init(appName, revision, instances);
+				String myproject = myprojectEntity.getKey();
+				List<ServiceInstance> instances = myprojectEntity.getValue();
+				init(appName, myproject, instances);
 			}
 		}
 		refresh();
 	}
 
-	public void init(String appName, String revision,
+	public void init(String appName, String myproject,
 			List<ServiceInstance> instanceList) {
-		List<URL> urls = getTemplateExportedURLs(url, revision, instanceList);
+		List<URL> urls = getTemplateExportedURLs(url, myproject, instanceList);
 		if (urls != null && urls.size() > 0) {
-			addAppNameWithRevision(appName, revision);
-			setUrlTemplate(appName, revision, urls);
+			addAppNameWithmyproject(appName, myproject);
+			setUrlTemplate(appName, myproject, urls);
 		}
 	}
 
@@ -148,19 +148,19 @@ public class GenearalServiceSubscribeHandler extends AbstractServiceSubscribeHan
 		return cloneExportedURLs(instances);
 	}
 
-	void setUrlTemplate(String appName, String revision, List<URL> urls) {
+	void setUrlTemplate(String appName, String myproject, List<URL> urls) {
 		if (urls == null || urls.size() == 0) {
 			return;
 		}
-		String key = getAppRevisionKey(appName, revision);
+		String key = getAppmyprojectKey(appName, myproject);
 		if (urlTemplateMap.containsKey(key)) {
 			return;
 		}
 		urlTemplateMap.put(key, urls.get(0));
 	}
 
-	private String getAppRevisionKey(String appName, String revision) {
-		return appName + "@" + revision;
+	private String getAppmyprojectKey(String appName, String myproject) {
+		return appName + "@" + myproject;
 	}
 
 	/**
@@ -176,9 +176,9 @@ public class GenearalServiceSubscribeHandler extends AbstractServiceSubscribeHan
 
 			String host = serviceInstance.getHost();
 			String appName = serviceInstance.getServiceId();
-			String revision = RevisionResolver.getRevision(serviceInstance);
+			String myproject = myprojectResolver.getmyproject(serviceInstance);
 
-			URL template = urlTemplateMap.get(getAppRevisionKey(appName, revision));
+			URL template = urlTemplateMap.get(getAppmyprojectKey(appName, myproject));
 
 			Stream.of(template)
 					.map(templateURL -> templateURL.removeParameter(TIMESTAMP_KEY))
@@ -231,7 +231,7 @@ public class GenearalServiceSubscribeHandler extends AbstractServiceSubscribeHan
 		return urlsCloneTo;
 	}
 
-	private List<URL> getTemplateExportedURLs(URL subscribedURL, String revision,
+	private List<URL> getTemplateExportedURLs(URL subscribedURL, String myproject,
 			List<ServiceInstance> serviceInstances) {
 
 		DubboMetadataService dubboMetadataService = getProxy(serviceInstances);
@@ -239,7 +239,7 @@ public class GenearalServiceSubscribeHandler extends AbstractServiceSubscribeHan
 		List<URL> templateExportedURLs = emptyList();
 
 		if (dubboMetadataService != null) {
-			templateExportedURLs = getExportedURLs(dubboMetadataService, revision,
+			templateExportedURLs = getExportedURLs(dubboMetadataService, myproject,
 					subscribedURL);
 		}
 		else {
@@ -260,12 +260,12 @@ public class GenearalServiceSubscribeHandler extends AbstractServiceSubscribeHan
 	}
 
 	private List<URL> getExportedURLs(DubboMetadataService dubboMetadataService,
-			String revision, URL subscribedURL) {
+			String myproject, URL subscribedURL) {
 		String serviceInterface = subscribedURL.getServiceInterface();
 		String group = subscribedURL.getParameter(GROUP_KEY);
 		String version = subscribedURL.getParameter(VERSION_KEY);
 
-		RpcContext.getContext().setAttachment(SCA_REVSION_KEY, revision);
+		RpcContext.getContext().setAttachment(SCA_REVSION_KEY, myproject);
 		String exportedURLsJSON = dubboMetadataService.getExportedURLs(serviceInterface,
 				group, version);
 

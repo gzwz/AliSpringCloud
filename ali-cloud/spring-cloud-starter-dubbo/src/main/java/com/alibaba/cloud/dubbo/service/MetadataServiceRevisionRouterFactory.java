@@ -30,12 +30,12 @@ import org.apache.dubbo.rpc.cluster.router.AbstractRouter;
 
 import org.springframework.util.CollectionUtils;
 
-import static com.alibaba.cloud.dubbo.metadata.RevisionResolver.SCA_REVSION_KEY;
+import static com.alibaba.cloud.dubbo.metadata.myprojectResolver.SCA_REVSION_KEY;
 
 /**
  * @author <a href="mailto:chenxilzx1@gmail.com">theonefx</a>
  */
-public class MetadataServiceRevisionRouterFactory implements RouterFactory {
+public class MetadataServicemyprojectRouterFactory implements RouterFactory {
 
 	@Override
 	public Router getRouter(URL url) {
@@ -52,16 +52,16 @@ public class MetadataServiceRevisionRouterFactory implements RouterFactory {
 					return invokers;
 				}
 
-				String revision = invocation.getAttachment(SCA_REVSION_KEY);
+				String myproject = invocation.getAttachment(SCA_REVSION_KEY);
 
-				if (StringUtils.isEmpty(revision)) {
+				if (StringUtils.isEmpty(myproject)) {
 					return invokers;
 				}
 
 				List<Invoker<T>> list = new ArrayList<>(invokers.size());
 
 				for (Invoker<T> invoker : invokers) {
-					if (StringUtils.equals(revision,
+					if (StringUtils.equals(myproject,
 							invoker.getUrl().getParameter(SCA_REVSION_KEY))) {
 						list.add(invoker);
 					}

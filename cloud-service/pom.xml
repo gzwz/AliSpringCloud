@@ -17,7 +17,7 @@
 
     <modules>
         <module>nacos-provider</module>
-        <module>nacos-customer</module>
+        <!--<module>nacos-customer</module>-->
     </modules>
     <dependencyManagement>
         <dependencies>

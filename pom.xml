@@ -10,6 +10,19 @@
     <description>基于阿里巴巴springcloud 学习</description>
     <packaging>pom</packaging>
 
+    <modules>
+        <module>cloud-dependencies</module>
+        <!--<module>gateway</module>-->
+        <module>cloud-service</module>
+        <module>ali-cloud</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <!-- Project revision -->
+        <myproject>1.0.0-SNAPSHOT</myproject>
+    </properties>
     <!--<parent>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-build</artifactId>
@@ -17,24 +30,8 @@
         <relativePath/>
     </parent>-->
 
-    <modules>
-        <module>cloud-dependencies</module>
-        <module>gateway</module>
-        <module>cloud-service</module>
-    </modules>
-
-    <properties>
-        <!-- Project revision -->
-        <myproject>1.0.0-SNAPSHOT</myproject>
-    </properties>
-
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR9</version>
-            </dependency>
             <dependency>
                 <groupId>com.alicloud</groupId>
                 <artifactId>cloud-dependencies</artifactId>
@@ -44,7 +41,27 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    <repositories><!-- 代码库 -->
+        <repository>
+            <id>maven-ali</id>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+    <build>
+        <pluginManagement>
+            <plugins>
 
+            </plugins>
+        </pluginManagement>
+    </build>
     <!--<build>
         <pluginManagement>
             <plugins>
@@ -105,17 +122,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven-compiler-plugin.version}</version>
-                <inherited>true</inherited>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <parameters>true</parameters>
-                </configuration>
-            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -195,19 +202,19 @@
                         </executions>
                     </plugin>-->
 
-                   <!-- <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>${maven-gpg-plugin.version}</version>
-                        <executions>
-                            <execution>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>-->
+                    <!-- <plugin>
+                         <groupId>org.apache.maven.plugins</groupId>
+                         <artifactId>maven-gpg-plugin</artifactId>
+                         <version>${maven-gpg-plugin.version}</version>
+                         <executions>
+                             <execution>
+                                 <phase>verify</phase>
+                                 <goals>
+                                     <goal>sign</goal>
+                                 </goals>
+                             </execution>
+                         </executions>
+                     </plugin>-->
                 </plugins>
             </build>
 

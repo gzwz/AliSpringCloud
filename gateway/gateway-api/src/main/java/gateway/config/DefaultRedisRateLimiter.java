@@ -17,9 +17,11 @@ public class DefaultRedisRateLimiter extends RedisRateLimiter {
         return super.getConfig().get("defaultFilters");
     }
 
-    public DefaultRedisRateLimiter(ReactiveRedisTemplate<String, String> redisTemplate,
+    public DefaultRedisRateLimiter(
+            @Qualifier("stringReactiveRedisTemplate")
+                    ReactiveRedisTemplate<String, String> redisTemplate,
                                    RedisScript<List<Long>> script,
-                                   @Qualifier("defaultValidator") Validator validator) {
+                                   Validator validator) {
         super(redisTemplate, script, validator);
     }
 

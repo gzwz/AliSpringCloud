@@ -50,7 +50,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.codec.ServerCodecConfigurer;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import org.springframework.web.reactive.result.view.ViewResolver;
-
 import static org.springframework.web.reactive.function.BodyInserters.fromValue;
 
 /**

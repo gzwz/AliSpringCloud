@@ -6,9 +6,9 @@ spring:
     username: ${RABBIT_MQ_USERNAME:guest}
     password: ${RABBIT_MQ_PASSWORD:guest}
   redis:
-    host: ${REDIS_HOST:localhost}
-    port: ${REDIS_PORT:6379}
-    #password: ${REDIS_PASSWORD:}
+    host: ${REDIS_HOST:120.77.38.34}
+    port: ${REDIS_PORT:6378}
+    password: ${REDIS_PASSWORD:redis@Wlz2021}
     lettuce:
       pool:
         max-active: 300

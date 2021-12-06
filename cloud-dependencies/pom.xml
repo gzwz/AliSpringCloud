@@ -296,11 +296,11 @@
                 <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
                 <version>2.2.6.RELEASE</version>
             </dependency>
-            <!--<dependency>
+            <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-gateway</artifactId>
                 <version>2.2.10.RELEASE</version>
-            </dependency>-->
+            </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-gateway-core</artifactId>
@@ -419,6 +419,11 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-security</artifactId>
                 <version>2.2.4.RELEASE</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+                <version>2.2.10.RELEASE</version>
             </dependency>
 
 

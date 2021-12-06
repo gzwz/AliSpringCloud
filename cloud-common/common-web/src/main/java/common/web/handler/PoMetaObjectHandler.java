@@ -1,10 +1,10 @@
 package common.web.handler;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
-import com.springboot.cloud.common.core.util.UserContextHolder;
-import com.springboot.cloud.common.web.entity.po.BasePo;
+import common.core.util.UserContextHolder;
+import common.web.entity.po.BasePo;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.reflection.MetaObject;
 
 import java.time.ZonedDateTime;

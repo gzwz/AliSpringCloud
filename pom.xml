@@ -87,25 +87,6 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
-            <!--<plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.3.7.RELEASE</version>
-                <configuration>
-                    &lt;!&ndash;<mainClass>gynsh.scf.ScfApplication</mainClass>
-                    &lt;!&ndash; cfca &ndash;&gt;
-                    <includeSystemScope>true</includeSystemScope>&ndash;&gt;
-                    &lt;!&ndash; cfca &ndash;&gt;
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>repackage</id>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>-->
         </plugins>
         <defaultGoal>compile</defaultGoal>
     </build>

@@ -1,10 +1,10 @@
-package core.entity.vo;
+package common.core.entity.vo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import core.exception.BaseException;
-import core.exception.ErrorType;
-import core.exception.SystemErrorType;
+import common.core.exception.BaseException;
+import common.core.exception.ErrorType;
+import common.core.exception.SystemErrorType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;

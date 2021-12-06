@@ -1,4 +1,4 @@
-package core.util;
+package common.core.util;
 
 import com.google.common.collect.Maps;
 

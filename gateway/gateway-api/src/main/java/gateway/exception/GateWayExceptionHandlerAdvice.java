@@ -1,7 +1,7 @@
 package gateway.exception;
 
-import core.entity.vo.Result;
-import core.exception.SystemErrorType;
+import common.core.entity.vo.Result;
+import common.core.exception.SystemErrorType;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureException;

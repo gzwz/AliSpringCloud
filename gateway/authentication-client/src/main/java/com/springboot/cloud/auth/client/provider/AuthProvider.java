@@ -1,6 +1,6 @@
 package com.springboot.cloud.auth.client.provider;
 
-import core.entity.vo.Result;
+import common.core.entity.vo.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;

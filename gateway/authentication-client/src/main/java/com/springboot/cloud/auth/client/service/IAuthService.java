@@ -1,6 +1,6 @@
 package com.springboot.cloud.auth.client.service;
 
-import core.entity.vo.Result;
+import common.core.entity.vo.Result;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 

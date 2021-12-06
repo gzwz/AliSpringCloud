@@ -2,7 +2,7 @@ package com.springboot.cloud.auth.client.service.impl;
 
 import com.springboot.cloud.auth.client.provider.AuthProvider;
 import com.springboot.cloud.auth.client.service.IAuthService;
-import core.entity.vo.Result;
+import common.core.entity.vo.Result;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package core.exception;
+package common.core.exception;
 
 /**
  * Created by zhoutaoo on 2018/6/2.

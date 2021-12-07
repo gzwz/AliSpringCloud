@@ -1,9 +1,9 @@
 SET NAMES utf8;
 
-DROP DATABASE IF EXISTS my_gateway;
-CREATE DATABASE my_gateway DEFAULT CHARSET utf8mb4;
+DROP DATABASE IF EXISTS mygateway;
+CREATE DATABASE mygateway DEFAULT CHARSET utf8mb4;
 
-USE my_gateway;
+USE mygateway;
 
 -- 网关路由表
 DROP TABLE IF EXISTS gateway_route;

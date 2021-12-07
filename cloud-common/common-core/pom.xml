@@ -19,8 +19,6 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <!-- todo 很奇怪，此次为什么一定要有版本号才能通过编译-->
-            <version>31.0.1-jre</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

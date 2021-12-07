@@ -1,4 +1,4 @@
-package com.springboot.cloud.auth.client.config;
+package auth.client.config;
 
 import feign.Feign;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;

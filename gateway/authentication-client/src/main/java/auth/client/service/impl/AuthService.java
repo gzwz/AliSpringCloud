@@ -1,7 +1,7 @@
-package com.springboot.cloud.auth.client.service.impl;
+package auth.client.service.impl;
 
-import com.springboot.cloud.auth.client.provider.AuthProvider;
-import com.springboot.cloud.auth.client.service.IAuthService;
+import auth.client.provider.AuthProvider;
+import auth.client.service.IAuthService;
 import common.core.entity.vo.Result;
 import io.jsonwebtoken.*;
 import lombok.extern.slf4j.Slf4j;

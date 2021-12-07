@@ -2,7 +2,7 @@ package gateway.filter;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.springboot.cloud.auth.client.service.IAuthService;
+import auth.client.service.IAuthService;
 import gateway.service.IPermissionService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ import reactor.core.publisher.Mono;
  * 请求url权限校验
  */
 @Configuration
-@ComponentScan(basePackages = "com.springboot.cloud.auth.client")
+@ComponentScan(basePackages = "auth.client")
 @Slf4j
 public class AccessGatewayFilter implements GlobalFilter {
 

@@ -2,7 +2,7 @@ package gateway.service.impl;
 
 import com.alicp.jetcache.anno.CacheType;
 import com.alicp.jetcache.anno.Cached;
-import com.springboot.cloud.auth.client.service.IAuthService;
+import auth.client.service.IAuthService;
 import gateway.service.IPermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

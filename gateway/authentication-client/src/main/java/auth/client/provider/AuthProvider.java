@@ -1,4 +1,4 @@
-package com.springboot.cloud.auth.client.provider;
+package auth.client.provider;
 
 import common.core.entity.vo.Result;
 import org.springframework.cloud.openfeign.FeignClient;

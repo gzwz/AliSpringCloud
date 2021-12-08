@@ -9,7 +9,7 @@
         <version>${revision}</version>
     </parent>
 
-    <groupId>com.springboot.cloud</groupId>
+    <groupId>com.alicloud</groupId>
     <artifactId>authentication-server</artifactId>
     <version>${revision}</version>
     <packaging>jar</packaging>
@@ -17,36 +17,48 @@
     <name>authentication-server</name>
     <description>Demo Oauth2 project for Spring Cloud Oauth2 Authentication Server</description>
 
-    <parent>
-        <groupId>com.springboot.cloud</groupId>
-        <artifactId>auth</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-    </parent>
 
     <dependencies>
         <dependency>
-            <groupId>com.springboot.cloud</groupId>
-            <artifactId>web</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>com.alicloud</groupId>
+            <artifactId>common-core</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-okhttp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
         </dependency>
         <!--oauth2认证-->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-security</artifactId>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
         </dependency>
-        <!--Swagger2 - RESTful API文档-->
+        <!--测试-->
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-        </dependency>
-        <!--jetcache缓存 -->
-        <dependency>
-            <groupId>com.alicp.jetcache</groupId>
-            <artifactId>jetcache-starter-redis</artifactId>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
         </dependency>
     </dependencies>
 

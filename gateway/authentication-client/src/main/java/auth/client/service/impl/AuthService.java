@@ -48,12 +48,13 @@ public class AuthService implements IAuthService {
 
     @Override
     public boolean hasPermission(Result authResult) {
-        log.debug("签权结果:{}", authResult.getData());
+        log.info("签权结果:{}", authResult.getData());
         return authResult.isSuccess() && (boolean) authResult.getData();
     }
 
     @Override
     public boolean hasPermission(String authentication, String url, String method) {
+        log.info("开始鉴权******");
         // 如果请求未携带token信息, 直接权限
         if (StringUtils.isBlank(authentication) || !authentication.startsWith(BEARER)) {
             log.error("user token is null");

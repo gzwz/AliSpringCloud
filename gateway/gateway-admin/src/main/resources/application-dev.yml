@@ -87,7 +87,7 @@ jetcache:
 gate:
   ignore:
     authentication:
-      startWith: /oauth,/open,/v2/api-docs
+      startWith: /oauth,/open,/v2/api-docs,/test
 
 management:
   endpoints:

@@ -15,7 +15,6 @@
 
     <name>authentication-client</name>
     <description>Demo Oauth2 project for Spring Cloud Oauth2 Authentication Client</description>
-
     <dependencies>
         <dependency>
             <groupId>com.alicloud</groupId>

@@ -16,11 +16,11 @@ public class GatewayConfig {
         // 路由构造器
         RouteLocatorBuilder.Builder routes = routeLocatorBuilder.routes();
         // 设置路径
-        routes.route("baidu_news_guonei_routh", r -> {
-            return r.path("/test").uri("http://news.baidu.com/guonei");
+        routes.route("test_routh", r -> {
+            return r.path("/get").uri("http://httpbin.org/");
         });
         routes.route("oauthid", ru->{
-            return ru.path("/oauth").uri("http://news.baidu.com/guonei");
+            return ru.path("/guonei").uri("http://news.baidu.com/");
         });
 //        routes.route("baidu_news_guoji_routh", r -> {
 //            return r.path("/guoji").uri("http://news.baidu.com/guoji");

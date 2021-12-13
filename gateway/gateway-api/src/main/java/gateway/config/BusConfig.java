@@ -28,7 +28,8 @@ public class BusConfig {
 
     @Bean
     Queue queue() {
-        String queueName = new Base64UrlNamingStrategy(appName + ".").generateName();
+       // String queueName = new Base64UrlNamingStrategy(appName + ".").generateName();
+        String queueName = appName;
         log.info("queue name:{}", queueName);
         return new Queue(queueName, false);
     }

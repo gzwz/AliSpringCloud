@@ -1,4 +1,4 @@
-package gateway.admin.config;
+package gateway.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,7 +21,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.springboot.cloud.gateway.admin"))
+                .apis(RequestHandlerSelectors.basePackage("gateway"))
                 .paths(PathSelectors.any())
                 .build();
     }

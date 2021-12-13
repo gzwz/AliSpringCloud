@@ -58,17 +58,22 @@ public class AccessGatewayFilter implements GlobalFilter {
         if (authService.ignoreAuthentication(url)) {
             return chain.filter(exchange);
         }
-        log.info("1111111url:{}", url);
         //调用签权服务看用户是否有权限，若有权限进入下一个filter
-        if (permissionService.permission(authentication, url, method)) {
-            ServerHttpRequest.Builder builder = request.mutate();
-            //TODO 转发的请求都加上服务间认证token
-            builder.header(X_CLIENT_TOKEN, "TODO 添加服务间简单认证");
-            //将jwt token中的用户信息传给服务
-            builder.header(X_CLIENT_TOKEN_USER, getUserToken(authentication));
-            return chain.filter(exchange.mutate().request(builder.build()).build());
-        }
-        return unauthorized(exchange);
+//        if (permissionService.permission(authentication, url, method)) {
+//            ServerHttpRequest.Builder builder = request.mutate();
+//            //TODO 转发的请求都加上服务间认证token
+//            builder.header(X_CLIENT_TOKEN, "TODO 添加服务间简单认证");
+//            //将jwt token中的用户信息传给服务
+//            builder.header(X_CLIENT_TOKEN_USER, getUserToken(authentication));
+//            return chain.filter(exchange.mutate().request(builder.build()).build());
+//        }
+        //return unauthorized(exchange);
+        ServerHttpRequest.Builder builder = request.mutate();
+        //TODO 转发的请求都加上服务间认证token
+        builder.header(X_CLIENT_TOKEN, "TODO 添加服务间简单认证");
+        //将jwt token中的用户信息传给服务
+       // builder.header(X_CLIENT_TOKEN_USER, getUserToken(authentication));
+        return chain.filter(exchange.mutate().request(builder.build()).build());
     }
 
     /**

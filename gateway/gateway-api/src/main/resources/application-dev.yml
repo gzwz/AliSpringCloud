@@ -2,6 +2,8 @@
 spring:
   application:
     name: spring-gateway
+  swagger:
+    enable: true
   rabbitmq:
     host: ${RABBIT_MQ_HOST:114.117.195.146}
     port: ${RABBIT_MQ_PORT:5672}
@@ -50,6 +52,9 @@ spring:
             redis-rate-limiter.burstCapacity: 10   #令牌桶的容积
             rate-limiter: "#{@defaultRedisRateLimiter}"  #SPEL表达式去的对应的bean
             key-resolver: "#{@apiKeyResolver}" #SPEL表达式去的对应的bean
+      nacos:
+        discovery:
+          server-addr: 127.0.0.1:8848
 #      routes:
 #          # 路由的ID，没有固定规则，但要求唯一，建议配合服务名
 #        - id: payment_routh

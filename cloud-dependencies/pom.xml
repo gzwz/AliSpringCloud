@@ -370,12 +370,6 @@
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>1.2.8</version>
             </dependency>
-            <!--数据库-->
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>8.0.25</version>
-            </dependency>
             <!--Redis缓存-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -473,4 +467,16 @@
 
         </dependencies>
     </dependencyManagement>
+    <distributionManagement>
+        <repository>
+            <id>myMavenRepo-releases</id>
+            <name>maven-releases</name>
+            <url>http://120.77.38.34:10000/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>myMavenRepo-snapshots</id>
+            <name>maven-snapshots</name>
+            <url>http://120.77.38.34:10000/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>

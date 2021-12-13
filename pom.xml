@@ -45,22 +45,6 @@
             </dependency>-->
         </dependencies>
     </dependencyManagement>
-   <!-- <repositories>&lt;!&ndash; 代码库 &ndash;&gt;
-        <repository>
-            <id>myMavenRepo</id>
-            <url>http://120.77.38.34:10000/repository/public</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>fail</checksumPolicy>
-            </snapshots>
-        </repository>
-
-
-    </repositories>-->
     <distributionManagement>
         <repository>
             <id>myMavenRepo-releases</id>

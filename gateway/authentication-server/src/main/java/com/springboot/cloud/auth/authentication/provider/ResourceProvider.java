@@ -1,7 +1,7 @@
 package com.springboot.cloud.auth.authentication.provider;
 
 import com.springboot.cloud.sysadmin.organization.entity.po.Resource;
-import com.springboot.cloud.common.core.entity.vo.Result;
+import common.core.entity.vo.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

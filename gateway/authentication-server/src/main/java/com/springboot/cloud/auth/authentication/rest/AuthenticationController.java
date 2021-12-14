@@ -1,7 +1,7 @@
 package com.springboot.cloud.auth.authentication.rest;
 
 import com.springboot.cloud.auth.authentication.service.IAuthenticationService;
-import com.springboot.cloud.common.core.entity.vo.Result;
+import common.core.entity.vo.Result;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

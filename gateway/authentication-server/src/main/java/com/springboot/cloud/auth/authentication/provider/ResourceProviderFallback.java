@@ -1,7 +1,7 @@
 package com.springboot.cloud.auth.authentication.provider;
 
-import com.springboot.cloud.common.core.entity.vo.Result;
 import com.springboot.cloud.sysadmin.organization.entity.po.Resource;
+import common.core.entity.vo.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

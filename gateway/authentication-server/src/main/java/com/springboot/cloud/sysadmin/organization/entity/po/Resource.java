@@ -1,6 +1,6 @@
 package com.springboot.cloud.sysadmin.organization.entity.po;
 
-import com.springboot.cloud.common.web.entity.po.BasePo;
+import common.web.entity.po.BasePo;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

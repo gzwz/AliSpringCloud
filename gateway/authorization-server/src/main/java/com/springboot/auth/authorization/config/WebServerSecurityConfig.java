@@ -48,11 +48,11 @@ public class WebServerSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
-        authenticationManagerBuilder
-                .userDetailsService(userDetailsService)
-                .passwordEncoder(passwordEncoder());
-        // 设置手机验证码登陆的AuthenticationProvider
-        authenticationManagerBuilder.authenticationProvider(mobileAuthenticationProvider());
+//        authenticationManagerBuilder
+//                .userDetailsService(userDetailsService)
+//                .passwordEncoder(passwordEncoder());
+//        // 设置手机验证码登陆的AuthenticationProvider
+//        authenticationManagerBuilder.authenticationProvider(mobileAuthenticationProvider());
     }
 
     /**

@@ -1,13 +1,15 @@
 package com.springboot.auth.authorization.exception;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.springboot.cloud.common.core.entity.vo.Result;
+import common.core.entity.vo.Result;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import org.springframework.security.oauth2.common.exceptions.OAuth2Exception;
 
 @EqualsAndHashCode(callSuper = true)
-@Data
+//@Data
+@Getter
 @JsonSerialize(using = CustomOauthExceptionSerializer.class)
 class CustomOauthException extends OAuth2Exception {
 

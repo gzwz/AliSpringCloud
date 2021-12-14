@@ -22,10 +22,12 @@
         <dependency>
             <groupId>com.alicloud</groupId>
             <artifactId>common-core</artifactId>
+            <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>com.alicloud</groupId>
             <artifactId>common-web</artifactId>
+            <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

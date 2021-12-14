@@ -10,7 +10,7 @@
         <version>${revision}</version>
     </parent>
 
-    <groupId>com.alicloud</groupId>
+    <!--<groupId>com.alicloud</groupId>-->
     <artifactId>gateway</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>

@@ -16,7 +16,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>nacos-provider</module>
-        <module>nacos-customer</module>
+        <module>springcloud-customer</module>
+        <module>springcloud-provider</module>
     </modules>
 </project>

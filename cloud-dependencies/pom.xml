@@ -55,7 +55,6 @@
                 <artifactId>common-web</artifactId>
                 <version>${revision}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.springframework.security.oauth</groupId>
                 <artifactId>spring-security-oauth2</artifactId>
@@ -84,25 +83,21 @@
                 <artifactId>httpclient</artifactId>
                 <version>4.5.13</version>
             </dependency>
-
             <dependency> <!-- 引入log4j2依赖 -->
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-log4j2</artifactId>
                 <version>2.5.6</version>
             </dependency>
-
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
                 <version>2.2.2.RELEASE</version>
             </dependency>
-
             <dependency>
                 <groupId>com.netflix.ribbon</groupId>
                 <artifactId>ribbon-httpclient</artifactId>
                 <version>2.3.0</version>
             </dependency>
-
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-commons</artifactId>
@@ -118,8 +113,6 @@
                 <artifactId>spring-rabbit</artifactId>
                 <version>2.2.13.RELEASE</version>
             </dependency>
-
-
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
@@ -128,7 +121,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-test</artifactId>
-                <version>2.3.7.RELEASE</version>
+                <version>${spring.boot.version}</version>
             </dependency>
             <!--JSON转换核心包-->
             <dependency>
@@ -152,6 +145,12 @@
                 <artifactId>jackson-dataformat-xml</artifactId>
                 <version>2.12.4</version>
             </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.module</groupId>
+                <artifactId>jackson-module-kotlin</artifactId>
+                <version>2.13.0</version>
+            </dependency>
+
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
@@ -248,7 +247,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-webflux</artifactId>
-                <version>2.3.7.RELEASE</version>
+                <version>${spring.boot.version}</version>
             </dependency>
 
             <dependency>
@@ -256,7 +255,6 @@
                 <artifactId>spring-cloud-alibaba-sentinel-gateway</artifactId>
                 <version>2.2.6.RELEASE</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis-reactive -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
@@ -323,7 +321,6 @@
                 <artifactId>feign-okhttp</artifactId>
                 <version>11.7</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/junit/junit -->
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
@@ -367,7 +364,6 @@
                 <version>3.5.1</version>
                 <scope>compile</scope>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
             <dependency>
                 <groupId>javax.validation</groupId>
                 <artifactId>validation-api</artifactId>
@@ -393,13 +389,26 @@
                 <artifactId>mysql-connector-java</artifactId>
                 <version>8.0.27</version>
             </dependency>
-
+            <!--<dependency>
+                <groupId>io.projectreactor.netty</groupId>
+                <artifactId>reactor-netty</artifactId>
+                <version>0.9.25.RELEASE</version>
+            </dependency>-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-reactor-netty</artifactId>
+                <version>2.3.12.RELEASE</version>
+            </dependency>
 
             <dependency>
                 <groupId>io.projectreactor</groupId>
                 <artifactId>reactor-core</artifactId>
                 <version>3.4.12</version>
             </dependency>
+
+
+
+
 
             <!-- 解决冲突 -->
             <dependency>
@@ -432,7 +441,12 @@
                 <artifactId>netty-codec-http2</artifactId>
                 <version>4.1.71.Final</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/io.reactivex/rxjava -->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-common</artifactId>
+                <version>4.1.72.Final</version>
+            </dependency>
+
             <dependency>
                 <groupId>io.reactivex</groupId>
                 <artifactId>rxjava</artifactId>
@@ -485,7 +499,6 @@
                 <artifactId>HdrHistogram</artifactId>
                 <version>2.1.12</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/org.objenesis/objenesis -->
             <dependency>
                 <groupId>org.objenesis</groupId>
                 <artifactId>objenesis</artifactId>

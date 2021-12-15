@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: springcloud-customer
+    name: dubbo-provider
   cloud:
     nacos:
       discovery:

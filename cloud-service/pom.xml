@@ -18,5 +18,6 @@
     <modules>
         <module>springcloud-customer</module>
         <module>springcloud-provider</module>
+        <module>dubbo-provider</module>
     </modules>
 </project>

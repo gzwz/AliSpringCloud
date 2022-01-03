@@ -16,16 +16,18 @@ spring:
     lettuce:
       pool:
         max-active: 300
-
   zipkin:
+    base-url: http://127.0.0.1:9441/
     enabled: true
     sender:
       type: rabbit
   sleuth:
-    enabled: true
-    http:
-      legacy:
-        enabled: true
+    sampler:
+      probability: 1.0
+  #    enabled: true
+#    http:
+#      legacy:
+#        enabled: true
   #jwt密码
   security:
     oauth2:
@@ -61,6 +63,7 @@ spring:
       nacos:
         discovery:
           server-addr: 127.0.0.1:8848
+
 
 feign:
   sentinel:

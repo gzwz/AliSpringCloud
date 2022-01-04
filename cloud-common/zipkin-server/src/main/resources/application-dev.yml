@@ -1,0 +1,28 @@
+server:
+  port: 9994
+
+spring:
+  application:
+    name: spring-zipkin-server
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          # 开启从注册中心动态创建路由的功能，利用微服务名进行路由
+          enabled: true
+          # 忽略大小写匹配，默认为 false。
+          # 当 eureka 自动大写 serviceId 时很有用。 所以 MYSERIVCE，会匹配 /myservice/**
+          lowerCaseServiceId: true
+      nacos:
+        discovery:
+          server-addr: 127.0.0.1:8848
+
+
+feign:
+  sentinel:
+    enabled: true
+  okhttp:
+    enabled: true
+logging:
+  config: classpath:logback-spring-dev.xml
+

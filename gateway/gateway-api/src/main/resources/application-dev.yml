@@ -1,4 +1,5 @@
-
+server:
+  port: 8080
 spring:
   application:
     name: spring-gateway
@@ -8,6 +9,7 @@ spring:
     host: ${RABBIT_MQ_HOST:114.117.195.146}
     port: ${RABBIT_MQ_PORT:5672}
     username: ${RABBIT_MQ_USERNAME:admin}
+
     password: ${RABBIT_MQ_PASSWORD:admin123}
   redis:
     host: ${REDIS_HOST:114.117.195.146}
@@ -16,23 +18,19 @@ spring:
     lettuce:
       pool:
         max-active: 300
-  zipkin:
-    base-url: http://127.0.0.1:9441/
-    enabled: true
-    sender:
-      type: rabbit
-  sleuth:
-    sampler:
-      probability: 1.0
-  #    enabled: true
-#    http:
-#      legacy:
-#        enabled: true
   #jwt密码
   security:
     oauth2:
       jwt:
         signingKey: 123456
+
+  zipkin:
+    base-url: http://127.0.0.1:9411/
+    discovery-client-enabled: false
+  sleuth:
+    sampler:
+      probability: 1.0
+
   cloud:
     gateway:
       discovery:

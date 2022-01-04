@@ -17,7 +17,7 @@
         <spring.cloud.version>Hoxton.SR9</spring.cloud.version>
         <spring.boot.version>2.3.12.RELEASE</spring.boot.version>
         <spring-cloud-build.version>2.3.5.RELEASE</spring-cloud-build.version>
-        
+
         <!-- Apache Dubbo -->
         <dubbo.version>2.7.13</dubbo.version>
 
@@ -60,17 +60,22 @@
 
             <!-- 阿里巴巴 end  -->
 
-
-            <dependency>
+           <!-- <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-sleuth-zipkin</artifactId>
-                <version>3.1.0</version>
+                <version>2.2.8.RELEASE</version>
+            </dependency>-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-zipkin</artifactId>
+                <version>2.2.8.RELEASE</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-sleuth</artifactId>
-                <version>3.1.0</version>
+                <version>2.2.8.RELEASE</version>
             </dependency>
+
 
             <dependency>
                 <groupId>org.springframework.security.oauth</groupId>
@@ -100,11 +105,11 @@
                 <artifactId>httpclient</artifactId>
                 <version>4.5.13</version>
             </dependency>
-            <dependency> <!-- 引入log4j2依赖 -->
+           <!-- <dependency> &lt;!&ndash; 引入log4j2依赖 &ndash;&gt;
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-log4j2</artifactId>
                 <version>2.5.6</version>
-            </dependency>
+            </dependency>-->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
@@ -369,6 +374,12 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>3.1.0</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.cloud</groupId>
+                        <artifactId>spring-cloud-sleuth-autoconfigure</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.mybatis</groupId>
@@ -422,10 +433,6 @@
                 <artifactId>reactor-core</artifactId>
                 <version>3.4.12</version>
             </dependency>
-
-
-
-
 
             <!-- 解决冲突 -->
             <dependency>
@@ -583,13 +590,69 @@
                 <artifactId>spring-expression</artifactId>
                 <version>5.2.18.RELEASE</version>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-archaius</artifactId>
+                <version>2.2.10.RELEASE</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.79</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-commons</artifactId>
+                <version>2.2.7.RELEASE</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/io.zipkin.brave/brave -->
 
 
-
-
-
-
-
+            <!-- <dependency>
+                 <groupId>com.netflix.archaius</groupId>
+                 <artifactId>archaius-core</artifactId>
+                 <version>2.0.0-rc.7</version>
+             </dependency>-->
+            <dependency>
+                <groupId>com.zaxxer</groupId>
+                <artifactId>HikariCP</artifactId>
+                <version>5.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-buffer</artifactId>
+                <version>4.1.72.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-codec</artifactId>
+                <version>4.1.72.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-codec-dns</artifactId>
+                <version>4.1.72.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-codec-socks</artifactId>
+                <version>4.1.72.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-codec-haproxy</artifactId>
+                <version>4.1.72.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-handler</artifactId>
+                <version>4.1.72.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>4.1.72.Final</version>
+            </dependency>
 
 
             <!--解决冲突 end-->
